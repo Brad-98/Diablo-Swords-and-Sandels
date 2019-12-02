@@ -19028,7 +19028,7 @@ GameObject:
   - component: {fileID: -676006940317442254}
   m_Layer: 0
   m_Name: FireballPrefab
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

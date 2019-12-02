@@ -4,29 +4,59 @@ using UnityEngine.UI;
 public class Spells : MonoBehaviour
 {
     [SerializeField]
-    private Sprite fireballIcon;
+    private Image[] actionBarIcon;
 
-    public enum Spell
+    public Spell[] mySpells;
+
+    void Start()
     {
-        NOSPELL,
-        Fireball,
-        Teleport
+        actionBarIcon[0].sprite = mySpells[0].spellIcon;
+        actionBarIcon[1].sprite = mySpells[1].spellIcon;
+        actionBarIcon[2].sprite = mySpells[2].spellIcon;
     }
-
-    public Spell currentSpell;
 
     void Update()
     {
-        switch(currentSpell)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            case Spell.NOSPELL:
-                break;
+            CastSpell(mySpells[0].spellId);
+        }
 
-            case Spell.Fireball:
-                gameObject.GetComponentInParent<ActionBar>().allAbilityButtons[3].GetComponent<Image>().sprite = fireballIcon;
-                break;
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CastSpell(mySpells[1].spellId);
+        }
 
-            case Spell.Teleport:
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            CastSpell(mySpells[2].spellId);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            var temp = mySpells[0];
+            mySpells[0] = mySpells[1];
+            mySpells[1] = temp;
+
+            actionBarIcon[0].sprite = mySpells[0].spellIcon;
+            actionBarIcon[1].sprite = mySpells[1].spellIcon;
+            actionBarIcon[2].sprite = mySpells[2].spellIcon;
+        }
+    }
+
+    void CastSpell(int id)
+    {
+        switch(id) //Actaully Works !!!!!!!!!! POG
+        {
+            case 0:
+                Debug.Log("Used Fireball");
+                this.GetComponent<ClickToMove>().playerAnimations.SetBool("castFireball", true);
+                break;
+            case 1:
+                Debug.Log("Used Frostbolt");
+                break;
+            case 2:
+                Debug.Log("Used Lightingbolt");
                 break;
         }
     }

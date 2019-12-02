@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2522420773673166510}
   - component: {fileID: 2522420773673166511}
   - component: {fileID: 5340210724076075297}
-  - component: {fileID: 4911840937813852235}
+  - component: {fileID: 6627787114242665493}
   m_Layer: 5
   m_Name: ActionButton
   m_TagString: Untagged
@@ -88,9 +88,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f19086616c6524a90f48bddef06923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballIcon: {fileID: 21300000, guid: e5a099e226dee7b4f9f1a2857fd8fa17, type: 3}
+  key: 0
+  fireballIcon: {fileID: 0}
   currentSpell: 0
---- !u!114 &4911840937813852235
+--- !u!114 &6627787114242665493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,6 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14efd76730c2c584b9ed9e9cb9c5be2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityButtonID: 0
+  keybind: 0
 --- !u!1 &4189010134375083970
 GameObject:
   m_ObjectHideFlags: 0

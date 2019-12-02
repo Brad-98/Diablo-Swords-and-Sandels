@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         cameraOffset = transform.position - targetPlayer.position;    
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     void LateUpdate()

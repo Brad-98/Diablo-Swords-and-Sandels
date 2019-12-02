@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastFireball : Spell
+public class CastFireball : MonoBehaviour
 {
     [SerializeField]
     GameObject Fireball;
@@ -11,6 +11,7 @@ public class CastFireball : Spell
     Transform FireballLocation;
 
     public LayerMask enemyLayer;
+    public float spellCooldown;
 
     void Start()
     {
@@ -21,14 +22,15 @@ public class CastFireball : Spell
     {
         spellCooldown -= Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.Alpha1) && spellCooldown < 0)
+        if(Input.GetMouseButton(0) && spellCooldown < 0) 
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, 1000, enemyLayer))
             {
-                this.GetComponent<ClickToMove>().playerAnimations.SetBool("castFireball", true);
+                //this.GetComponent<ClickToMove>().playerAnimations.SetBool("castFireball", true);
+                ClickToMove.isAttacking = true;
             }  
         }
     }
@@ -37,6 +39,8 @@ public class CastFireball : Spell
     {
         Instantiate(Fireball, FireballLocation.position, FireballLocation.rotation);
         this.GetComponent<ClickToMove>().playerAnimations.SetBool("castFireball", false);
+        ClickToMove.isAttacking = false;
         spellCooldown = 0.1f;
+        
     }
 }

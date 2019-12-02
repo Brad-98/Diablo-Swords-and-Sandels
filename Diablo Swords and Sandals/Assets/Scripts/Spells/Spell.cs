@@ -1,6 +1,18 @@
 ﻿using UnityEngine;
 
-public class Spell : MonoBehaviour
+[System.Serializable]
+public class Spell
 {
-    public float spellCooldown = 0f;
+    public Sprite spellIcon;
+    public string spellName;
+    public string spellDescription;
+    public int spellId;
+
+    public Spell(Spell d)
+    {
+        spellIcon = d.spellIcon;
+        spellName = d.spellName;
+        spellDescription = d.spellDescription;
+        spellId = d.spellId;
+    }
 }

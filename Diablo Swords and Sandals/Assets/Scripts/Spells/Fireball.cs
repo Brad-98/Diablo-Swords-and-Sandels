@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Fireball : Spell
+public class Fireball : MonoBehaviour
 {
     [SerializeField]
     private GameObject explosion;

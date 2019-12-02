@@ -414,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6967863031718688462}
   m_Layer: 0
-  m_Name: FireballLocation
+  m_Name: SpellSpawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,6 +685,36 @@ Transform:
   - {fileID: 8390384711847104841}
   m_Father: {fileID: 5455902944288845955}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2285854840603186971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5406562157073465762}
+  m_Layer: 0
+  m_Name: enemyTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5406562157073465762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285854840603186971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6607284288821781663}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2472265608107829798
 GameObject:
@@ -2050,9 +2080,9 @@ GameObject:
   - component: {fileID: 3835881387444488677}
   - component: {fileID: 3943644034643951668}
   - component: {fileID: 2834615439293543588}
-  - component: {fileID: 1529677740790689014}
-  - component: {fileID: 9101525221760551278}
+  - component: {fileID: 1062046811382500827}
   - component: {fileID: 6786397082901840097}
+  - component: {fileID: 3689459113729077512}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2075,6 +2105,7 @@ Transform:
   - {fileID: 3773757014846012114}
   - {fileID: 2519181556569684991}
   - {fileID: 8248925377981128001}
+  - {fileID: 5406562157073465762}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2137,7 +2168,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerRotationSpeed: 10
---- !u!114 &1529677740790689014
+--- !u!114 &1062046811382500827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2146,25 +2177,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7920305438437611148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 735f36104811dfd40b0205ae9ee67075, type: 3}
+  m_Script: {fileID: 11500000, guid: d3f19086616c6524a90f48bddef06923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellCooldown: 0
---- !u!114 &9101525221760551278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7920305438437611148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f1884f401a43c4392f6eb99f9e1e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellCooldown: 0
-  Fireball: {fileID: 0}
-  FireballLocation: {fileID: 0}
+  actionBarIcon: []
+  mySpells: []
 --- !u!136 &6786397082901840097
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2179,6 +2196,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &3689459113729077512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7920305438437611148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f1884f401a43c4392f6eb99f9e1e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fireball: {fileID: 1725317912486240, guid: e55149ba6f4d00741984987e258c3378, type: 3}
+  FireballLocation: {fileID: 6967863031718688462}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  spellCooldown: 0
 --- !u!1 &7979264337206647629
 GameObject:
   m_ObjectHideFlags: 0

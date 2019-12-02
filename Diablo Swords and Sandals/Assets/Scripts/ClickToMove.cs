@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -14,6 +15,8 @@ public class ClickToMove : MonoBehaviour
     private float idleMoveAnimationTimer = 0.0f;
 
     public float moveSpeed = 6.0f;
+
+    public static bool isAttacking;
 
     public Vector3 newPlayerPosition;
     public LayerMask groundLayer;
@@ -31,12 +34,21 @@ public class ClickToMove : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(0))
-        {
-            mouseClickedPosition();
-        }
+        if (EventSystem.current.IsPointerOverGameObject()) return; //Can't move when skills and stats window is open
 
-        moveToPosition();
+        if (!isAttacking)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                mouseClickedPosition();
+            }
+
+            moveToPosition();
+        }
+        else
+        {
+            newPlayerPosition = transform.position;
+        }
     }
 
     public void mouseClickedPosition()
