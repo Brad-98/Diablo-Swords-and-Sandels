@@ -1360,6 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLocation: {fileID: 0}
   speed: 1
+  gold: {fileID: 7641574128805075472, guid: 481c604a1abfb924b834e9a5cb7c36e6, type: 3}
 --- !u!1 &6278434035986049471
 GameObject:
   m_ObjectHideFlags: 0

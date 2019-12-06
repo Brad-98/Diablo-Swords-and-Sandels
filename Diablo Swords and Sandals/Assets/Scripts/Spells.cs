@@ -5,6 +5,8 @@ public class Spells : MonoBehaviour
 {
     [SerializeField]
     private Image[] actionBarIcon;
+    [SerializeField]
+    private Image[] actionBarIconInSkillsandStatsUI;
 
     public Spell[] mySpells;
 
@@ -13,6 +15,10 @@ public class Spells : MonoBehaviour
         actionBarIcon[0].sprite = mySpells[0].spellIcon;
         actionBarIcon[1].sprite = mySpells[1].spellIcon;
         actionBarIcon[2].sprite = mySpells[2].spellIcon;
+
+        actionBarIconInSkillsandStatsUI[0].sprite = actionBarIcon[0].sprite;
+        actionBarIconInSkillsandStatsUI[1].sprite = actionBarIcon[1].sprite;
+        actionBarIconInSkillsandStatsUI[2].sprite = actionBarIcon[2].sprite;
     }
 
     void Update()

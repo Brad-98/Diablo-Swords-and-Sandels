@@ -5,7 +5,7 @@ using UnityEngine;
 public class CastFireball : MonoBehaviour
 {
     [SerializeField]
-    GameObject Fireball;
+    GameObject FireballPrefab;
 
     [SerializeField]
     Transform FireballLocation;
@@ -29,7 +29,8 @@ public class CastFireball : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 1000, enemyLayer))
             {
-                //this.GetComponent<ClickToMove>().playerAnimations.SetBool("castFireball", true);
+                Fireball.zombieTarget = hit.transform;
+                this.GetComponent<ClickToMove>().playerAnimations.SetBool("castFireball", true);
                 ClickToMove.isAttacking = true;
             }  
         }
@@ -37,7 +38,7 @@ public class CastFireball : MonoBehaviour
 
     void castFireball()
     {
-        Instantiate(Fireball, FireballLocation.position, FireballLocation.rotation);
+        Instantiate(FireballPrefab, FireballLocation.position, FireballLocation.rotation);
         this.GetComponent<ClickToMove>().playerAnimations.SetBool("castFireball", false);
         ClickToMove.isAttacking = false;
         spellCooldown = 0.1f;

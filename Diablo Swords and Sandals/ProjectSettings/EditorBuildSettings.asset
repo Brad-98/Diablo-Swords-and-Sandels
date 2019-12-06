@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
+    path: Assets/Scenes/Town.unity
     guid: 1470a6309c515044ba5e58c4f9351654
   - enabled: 1
     path: Assets/Scenes/Training.unity
     guid: 4322938c643f9394b8823f9d5a7c9346
+  - enabled: 1
+    path: Assets/Scenes/Tournament.unity
+    guid: 313503a908c13194598c9613059ffa61
   m_configObjects: {}

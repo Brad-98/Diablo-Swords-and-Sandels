@@ -10,6 +10,9 @@ public class Zombie : MonoBehaviour
     [SerializeField]
     private float speed = 1.0f;
 
+    [SerializeField]
+    private GameObject gold;
+
     void Start()
     {
         playerLocation = GameObject.Find("Player/enemyTarget").transform;
@@ -25,8 +28,11 @@ public class Zombie : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fireball") 
         {
+            Instantiate(gold, transform.position, transform.rotation);
             Destroy(gameObject);
-            //-enemyHealth
+            
+            GameStats.instance.playerGold += 50;
+            GameObject.FindWithTag("Finish").GetComponent<SkillsandStatsUI>().SetExperience(120);
         }
     }
 }

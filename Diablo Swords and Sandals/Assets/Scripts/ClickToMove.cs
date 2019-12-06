@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -56,7 +57,7 @@ public class ClickToMove : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if(Physics.Raycast(ray, out hit, 1000, groundLayer))
+        if (Physics.Raycast(ray, out hit, 1000, groundLayer))
         {
             newPlayerPosition = new Vector3(hit.point.x, hit.point.y, hit.point.z);
         }
@@ -107,5 +108,20 @@ public class ClickToMove : MonoBehaviour
     void footstepSound()
     {
         audioSource.PlayOneShot(footstep);
+    }
+
+
+
+
+
+
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameStats.instance.playerHealth -= 5;
+            GameObject.FindWithTag("Finish").GetComponent<SkillsandStatsUI>().SetHealthText();
+        }
     }
 }

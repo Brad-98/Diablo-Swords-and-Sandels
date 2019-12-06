@@ -7,12 +7,7 @@ public class Fireball : MonoBehaviour
 
     [SerializeField]
     private float fireballSpeed = 15;
-    private Transform zombieTarget;
-
-    void Start()
-    {
-        zombieTarget = GameObject.Find("Zombie/zombieTarget").transform;
-    }
+    public static Transform zombieTarget;
 
     void Update()
     {
